@@ -5,7 +5,7 @@
             background: #292a2d;
             color: #fff;
         }
-        
+
         body[theme="system"] input {
             color: #fff;
         }
@@ -17,12 +17,49 @@
     .color-indigo {
         color: #1f3667;
     }
-    
+
     .color-orange {
         color: #dd7513;
     }
-    
+
     .color-red {
         color: #c53535;
+    }
+}
+
+/*ICONS*/
+@media {
+    .icon-code-slash {
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        transform: rotate(15deg) scale(var(--ggs,1));
+        width: 2px;
+        height: 16px;
+        background: currentColor
+    }
+
+    .icon-code-slash::after, .icon-code-slash::before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        transform: rotate(-60deg)
+    }
+
+    .icon-code-slash::before {
+        border-left: 2px solid;
+        border-top: 2px solid;
+        left: -8px;
+        top: 5px
+    }
+
+    .icon-code-slash::after {
+        border-right: 2px solid;
+        border-bottom: 2px solid;
+        right: -8px;
+        top: 3px
     }
 }
