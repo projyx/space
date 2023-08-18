@@ -1,0 +1,25 @@
+{
+    "name": "Code",
+    "routes": [
+        {
+            "file": "explorer.html",
+            "url": "/"
+        },
+        {
+            "file": "settings.html",
+            "url": "/settings"
+        },
+        {
+            "file": "user.html",
+            "url": "/*"
+        },
+        {
+            "file": "code.html",
+            "url": "/*/*/code"
+        },
+        {
+            "file": "explorer.html",
+            "url": "/*/*/file"
+        }
+    ]
+}
