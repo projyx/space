@@ -2,7 +2,7 @@
     "name": "Code",
     "routes": [
         {
-            "file": "explorer.html",
+            "file": "home.html",
             "url": "/"
         },
         {

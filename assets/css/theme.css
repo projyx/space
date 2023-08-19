@@ -33,7 +33,7 @@
         display: block;
         position: relative;
         box-sizing: border-box;
-        transform: rotate(15deg) scale(var(--ggs,1));
+        transform: rotate(15deg) scale(var(--ggs,0.8));
         width: 2px;
         height: 16px;
         background: currentColor
@@ -61,5 +61,34 @@
         border-bottom: 2px solid;
         right: -8px;
         top: 3px
+    }
+}
+
+@media {
+    .icon-search {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        transform: scale(var(--ggs,0.75));
+        width: 16px;
+        height: 16px;
+        border: 2px solid;
+        border-radius: 100%;
+        margin-left: -4px;
+        margin-top: -4px
+    }
+
+    .icon-search::after {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        border-radius: 3px;
+        width: 2px;
+        height: 8px;
+        background: currentColor;
+        transform: rotate(-45deg);
+        top: 10px;
+        left: 12px
     }
 }

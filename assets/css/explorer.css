@@ -1,11 +1,33 @@
 @media {
+    .header-explorer {
+        background: #292a2d;
+        border-bottom: 1px solid #666;
+        box-sizing: border-box;
+        position: fixed;
+        width: 100%;
+        z-index: 12345;
+    }
+
+    .header-explorer > section {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .header-explorer div > form {
+        flex: 1;
+    }
+}
+
+@media {
     .header-explorer .navigate-brand > section {
         align-items: center;
         display: flex;
         gap: 5px;
-        padding: 0 20px;
+        /* padding: 0 20px; */
     }
-    
+
     .header-explorer .navigate-brand i {
         align-items: center;
         display: flex;
@@ -13,9 +35,142 @@
         justify-content: center;
         width: 20px;
     }
-    
+
     .header-explorer .navigate-brand font {
         font-size: 18px;
         font-weight: bolder;
+    }
+}
+
+@media {
+    .header-explorer .explorer-address {
+        border: 1px solid black;
+        border-radius: 50px;
+        box-sizing: border-box;
+        flex: 1;
+        height: 30px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .header-explorer .explorer-address {
+            border: 1px solid #666;
+        }
+    }
+}
+
+@media {
+    .header-explorer .explorer-search {
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 50px;
+        box-sizing: border-box;
+        display: flex;
+        gap: 10px;
+        padding: 0 20px;
+        height: 30px;
+        width: 320px;
+    }
+
+    .header-explorer .explorer-search > form {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .header-explorer .explorer-search > form input {
+        flex: 1;
+        font-size: 12px;
+        height: 100%;
+        line-height: 50px;
+        width: 100%;
+    }
+
+    .header-explorer .explorer-search span:last-child {
+        flex: 1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .header-explorer .explorer-search {
+            border: 1px solid #666;
+        }
+    }
+}
+
+@media {
+    .article-explorer {
+        display: flex;
+        flex: 1;
+        padding-top: 50px;
+    }
+
+    .article-explorer .explorer-nav {
+        height: calc(100% - 50px);
+        position: fixed;
+        width: 320px;
+    }
+
+    .article-explorer .explorer-section {
+        box-sizing: border-box;
+        border-left: 1px solid #666;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        width: calc(100% - 320px)
+    }
+
+    .article-explorer .explorer-section .div-places {
+        padding: 20px;
+    }
+
+    .article-explorer .explorer-section .div-places > section {
+        display: flex;
+        gap: 20px;
+    }
+
+    .article-explorer .explorer-section .div-places > section .places-folder {
+        width: calc((100% - 80px) / 5);
+    }
+
+    @media (max-width: 1600px) {
+        .article-explorer .explorer-section .div-places > section .places-folder {
+            width: calc((100% - 60px) / 4);
+        }
+    }
+
+    @media (max-width: 1366px) {
+        .article-explorer .explorer-section .div-places > section .places-folder {
+            width: calc((100% - 40px) / 3);
+        }
+    }
+
+    .article-explorer .explorer-section .div-places > section .places-folder:hover {
+        background: #666;
+    }
+
+    .article-explorer .explorer-section .div-places > section .places-folder > section {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .article-explorer .explorer-section .div-places > section .places-folder picture {
+        height: 0;
+        padding-top: 100%;
+        width: 100%;
+    }
+
+    .article-explorer .explorer-section .div-places > section .places-folder picture img {
+        bottom: 0;
+        display: flex;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 91%;
     }
 }

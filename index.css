@@ -3,4 +3,21 @@
         font-family: Arial;
         margin: 0;
     }
+
+    form {
+        margin: 0;
+    }
+
+    input[type="text"] {
+        background-color: transparent;
+        bordeR: none;
+    }
+
+    input[type="text"]:focus {
+        outline: none;
+    }
+
+    picture {
+        position: relative;
+    }
 }
