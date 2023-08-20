@@ -2,7 +2,7 @@
     "name": "Code",
     "routes": [
         {
-            "file": "home.html",
+            "file": "explorer.html",
             "url": "/"
         },
         {
@@ -10,12 +10,16 @@
             "url": "/settings"
         },
         {
-            "file": "user.html",
+            "file": "explorer.html",
             "url": "/*"
         },
         {
             "file": "code.html",
             "url": "/*/*/code"
+        },
+        {
+            "file": "explorer.html",
+            "url": "/*/*"
         },
         {
             "file": "explorer.html",

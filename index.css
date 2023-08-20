@@ -21,3 +21,16 @@
         position: relative;
     }
 }
+
+@media {    
+    .component {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100%;
+    }
+    
+    .component:not(.active) {
+        display: none;
+    }
+}

@@ -15,15 +15,16 @@
         <script src="/assets/js/browse.js"></script>
         <script src="/assets/js/events.js"></script>
         <script src="/assets/js/export.js"></script>
+        <script src="/assets/js/github.js"></script>
         <script src="/assets/js/routes.js"></script>
     </head>
     <body theme="system">
         <main>
-            <section class="component component-home" route="/"></section>
+            <section class="component component-home" route="/" routes="/"></section>
             <section class="component component-user" route="/*"></section>
+            <section class="component component-repo" route="/*/*"></section>
             <section class="component component-code" route="/*/code"></section>
             <section class="component component-settings" route="/chat/*"></section>
-            <section class="component component-file" route="/start"></section>
         </main>
     </body>
 </html>
