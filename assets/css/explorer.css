@@ -10,6 +10,7 @@
         background: #292a2d;
         border-bottom: 1px solid #666;
         box-sizing: border-box;
+        padding: 10px;
         position: fixed;
         width: 100%;
         z-index: 12345;
@@ -19,11 +20,14 @@
         align-items: center;
         display: flex;
         gap: 10px;
-        padding: 0 10px;
     }
 
     .header-explorer div > form {
         flex: 1;
+    }
+    
+    .header-explorer .navigate-brand {
+        display: none;
     }
     
     .header-explorer .navigate-brand > section {
@@ -44,6 +48,19 @@
     .header-explorer .navigate-brand font {
         font-size: 18px;
         font-weight: bolder;
+    }
+
+    .header-explorer .navigate-contents > section {
+        display: flex;
+        gap: 5px;
+    }
+
+    .header-explorer .navigate-contents > section i {
+        align-items: center;
+        display: flex;
+        height: 30px;
+        justify-content: Center;
+        width: 30px;
     }
     
     .header-explorer .explorer-address {

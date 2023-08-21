@@ -29,6 +29,111 @@
 
 /*ICONS*/
 @media {
+    .icon-arrow-left {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        transform: scale(var(--ggs,1));
+        width: 22px;
+        height: 22px
+    }
+
+    .icon-arrow-left::after, .icon-arrow-left::before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        left: 3px
+    }
+
+    .icon-arrow-left::after {
+        width: 8px;
+        height: 8px;
+        border-bottom: 2px solid;
+        border-left: 2px solid;
+        transform: rotate(45deg);
+        bottom: 7px
+    }
+
+    .icon-arrow-left::before {
+        width: 16px;
+        height: 2px;
+        bottom: 10px;
+        background: currentColor
+    }
+}
+
+@media {
+    .icon-arrow-right {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        transform: scale(var(--ggs,1));
+        width: 22px;
+        height: 22px
+    }
+
+    .icon-arrow-right::after, .icon-arrow-right::before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        right: 3px
+    }
+
+    .icon-arrow-right::after {
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid;
+        border-right: 2px solid;
+        transform: rotate(45deg);
+        bottom: 7px
+    }
+
+    .icon-arrow-right::before {
+        width: 16px;
+        height: 2px;
+        bottom: 10px;
+        background: currentColor
+    }
+}
+
+@media {
+    .icon-arrow-up {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        transform: scale(var(--ggs,1));
+        width: 22px;
+        height: 22px
+    }
+
+    .icon-arrow-up::after, .icon-arrow-up::before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        top: 4px
+    }
+
+    .icon-arrow-up::after {
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid;
+        border-left: 2px solid;
+        transform: rotate(45deg);
+        left: 7px
+    }
+
+    .icon-arrow-up::before {
+        width: 2px;
+        height: 16px;
+        left: 10px;
+        background: currentColor
+    }
+}
+
+@media {
     .icon-code-slash {
         display: block;
         position: relative;

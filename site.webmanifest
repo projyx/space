@@ -19,8 +19,8 @@
             "url": "/*/*"
         },
         {
-            "file": "editor.html",
-            "url": "/*/*/edit"
+            "file": "explorer.html",
+            "url": "/*/*/tree"
         },
         {
             "file": "explorer.html",
