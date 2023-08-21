@@ -33,11 +33,11 @@ window.routes = function(uri, options) {
                             }
                             console.log("routes.view editor." + paths[2]);
                         } else if (paths[2] === "tree") {
-                            var path = uri.split('/').filter(o => o.length > 0).splice(4).join('/');
+                            var path = uri.split('/').filter(o=>o.length > 0).splice(4).join('/');
                             console.log("routes.view repository", {
                                 path
                             });
-                            var repos = await github.repos.contents(sub, paths[1], path);
+                            var contents = await github.repos.contents(sub, paths[1], path);
                             var explorer = component.querySelector('.explorer-section');
                             explorer.innerHTML = "";
                             var html = await get("/assets/html/explorer.repo.html");
@@ -47,17 +47,18 @@ window.routes = function(uri, options) {
                             function compare(a, b) {
                                 return a.type.localeCompare(b.type) || b.name - a.name;
                             }
-                            repos.sort(compare).forEach((repo,index)=>{
+                            contents.sort(compare).forEach((content,index)=>{
                                 var el = template.cloneNode(true);
                                 var icon = null;
-                                if (repo.type === "file") {
+                                if (content.type === "file") {
                                     icon = "/assets/png/file-repository.png";
-                                } else if (repo.type === "folder") {
+                                } else if (content.type === "folder") {
                                     icon = "/assets/png/file-folder.png";
                                 }
-                                el.setAttribute('href', '/' + sub + '/' + repo.name);
+                                const href = '/' + sub + '/' + paths[1] + '/tree/main/' + path + '/' + content.name;
+                                el.setAttribute('href', href);
                                 icon ? el.querySelector('.folder-image img').src = icon : null;
-                                el.querySelector('.folder-name').textContent = repo.name;
+                                el.querySelector('.folder-name').textContent = content.name;
                                 feed.insertAdjacentHTML('beforeend', el.outerHTML)
                             }
                             );
