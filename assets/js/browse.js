@@ -31,20 +31,32 @@ browse.route = (href,params)=>{
 
         //DYNAMIC URL
         var loop = null;
+        var pool = null;
+        var bool = null;
+        var loob = null;
+        var shtap = null;
         var dynamic = pathname;
         var matched = pathname;
         if (paths.length > 0) {
-            var route = window.manifest.routes.every(function(route, index) {
-                if (route.url !== "/") {
-                    var path = route.url.split('/').filter(o=>o.length > 0);
-                    var bool = [];
-                    var loob = [];
-                    loop = [];
-                    path.forEach((a,z)=>findComponent(a, z))
-                    async function findComponent(a, z) {
-                        if (paths.length === path.length) {
-                            var p = paths[z];
-                            var d = p;
+            var route = window.manifest.routes.reverse().filter(o=>o.url !== "/").every(function(route, index) {
+                //console.log('manifest.route', {dynamic, url: route.url});
+                var path = route.url.split('/').filter(o=>o.length > 0);
+                //path.reverse();
+                console.log(41, route.url, path, paths);
+                shtap = [];
+                bool = [];
+                loob = [];
+                loop = [];
+                pool = [];
+                paths.forEach((a,z)=>findComponent(a, z))
+                async function findComponent(a, z) {
+                    if (paths.length >= path.length) {
+                        var p = paths[z];
+                        var q = path[z] ? path[z] : null;
+                        var d = p;
+                        var e = null;
+                        console.log(48, z);
+                        if (z < path.length) {
                             if (p.startsWith(':')) {
                                 var b = p.split(':')[1];
                                 var c = '*';
@@ -59,31 +71,76 @@ browse.route = (href,params)=>{
                                 c = a;
                                 bool.push(paths[z] === c);
                             }
-                            loob.push(c)
-                            loop.push(d)
+                            e = q === "*" ? q : d;
+                            loob.push(c);
+                            loop.push(d);
+                            shtap.push(c);
+                            if (q === "*") {
+                                pool.push(e)
+                            } else {
+                                if (p === q) {
+                                    pool.push(e)
+                                }
+                            }
+                        } else {
+                            e = q ? q : d;
+                            loop.push(d);
+                            shtap.push(d);
+                            //pool.push(e);
                         }
+                        console.log(66, {
+                            paths,
+                            shtap,
+                            a,
+                            p,
+                            q,
+                            z,
+                            c,
+                            d,
+                            e,
+                            bool,
+                            loob,
+                            loop,
+                            pool,
+                            url: route.url
+                        });
                     }
-                    if (bool.length > 0 && bool.every(Boolean)) {
-                        dynamic = '/' + loob.join('/');
-                        matched = '/' + loop.join('/');
-                        console.log(68, matched);
-                        return false
-                    } else {
-                        return true
-                    }
+                }
+                var booled = bool.length > 0 && bool.every(Boolean);
+                var rooted = booled && ('/' + loop.join('/').startsWith(route.url));
+                console.log(68, {
+                    bool,
+                    booled,
+                    rooted,
+                    url: route.url
+                }, {
+                    loob,
+                    loop,
+                    pool
+                }, {
+                    loob: '/' + loob.join('/'),
+                    loop: '/' + loop.join('/'),
+                    pool: '/' + pool.join('/')
+                });
+                if (booled) {
+                    dynamic = '/' + shtap.join('/');
+                    matched = '/' + pool.join('/');
+                    console.log(72, matched);
+                    return false
                 } else {
                     return true
                 }
             })
-            link = '/' + loop.join('/');
+            link = '/' + shtap.join('/');
         }
 
         //PAGE ROUTE
         var uri = link + (search ? "?" + search : "");
-        var component = document.querySelector('[route="' + dynamic + '"]');
-        var route = window.manifest.routes.filter(o=>o.url === dynamic)[0];
+        var component = document.querySelector('[route="' + matched + '"]');
+        var route = window.manifest.routes.filter(o=>o.url === matched)[0];
         var options = {
             loop,
+            pool,
             component,
             match: {
                 dynamic,
@@ -103,10 +160,15 @@ browse.route = (href,params)=>{
         document.querySelectorAll('.component').forEach(c=>c.classList.remove('active'));
         var html = await get('/assets/html/' + route.file);
         component.innerHTML.length === 0 ? component.innerHTML = html : null;
-        var obj = await window.routes(uri, options);
+        try {
+            var obj = await window.routes(uri, options);
+            component.classList.add('active');
+        } catch (e) {
+            console.log(e);
+            alert(e.message);
+        }
 
         //VIEW PAGE
-        component.classList.add('active');
         const pop = params && params.pop;
         const mod = matched !== pathname
 

@@ -3,7 +3,8 @@
     "routes": [
         {
             "file": "explorer.html",
-            "url": "/"
+            "url": "/",
+            "root": true
         },
         {
             "file": "settings.html",
@@ -14,12 +15,12 @@
             "url": "/*"
         },
         {
-            "file": "code.html",
-            "url": "/*/*/code"
-        },
-        {
             "file": "explorer.html",
             "url": "/*/*"
+        },
+        {
+            "file": "editor.html",
+            "url": "/*/*/edit"
         },
         {
             "file": "explorer.html",
