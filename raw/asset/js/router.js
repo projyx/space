@@ -42,7 +42,7 @@ window.rout.er = (href,params)=>{
         var dynamic = pathname;
         var matched = pathname;
         if (paths.length > 0) {
-            var route = window.rout.es.reverse().every(function(route, index) {
+            var route = window.rout.es.every(function(route, index) {
                 //console.log('manifest.route', {dynamic, url: route.url});
                 var path = route.url.split('/').filter(o=>o.length > 0);
                 console.log(41, route.url, path, paths);

@@ -25,7 +25,7 @@ window.onload = async(event)=>{
     });
     0 < 1 ? window.rout.es.sort(function(a, b) {
         return rout.ed(a.url).length - rout.ed(b.url).length
-    }) : null;
+    }).reverse() : null;
     0 > 1 ? console.log(2, "window.onload", {
         routes: window.routes
     }) : null;
