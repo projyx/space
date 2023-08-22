@@ -1,8 +1,34 @@
 window.onload = async(event)=>{
-    window.manifest = await get("/site.webmanifest");
-    console.log(2, "window.onload", {
-        manifest: window.manifest
+    function compare(a, b) {
+        var routed = (c)=>{
+            return c.getAttribute('route') ? c.getAttribute('route') : c.getAttribute('routes');
+        }
+        var aa = routed(a);
+        var bb = routed(b);
+        var x = rout.ed(aa);
+        var y = rout.ed(bb);
+        0 > 1 ? console.log(15, aa, bb, x.length, y.length) : null;
+        var routes = (z)=>{
+            return x.length < y.length ? x : y;
+        }
+        var alpha = routed(b).localeCompare(routed(a));
+        var length = routes(b).length - routes(a).length;
+        var paths = rout.ed(aa).length - rout.ed(bb).length;
+        return alpha
+    }
+    Array.from(document.querySelectorAll('[route], [routes]')).sort(compare).forEach(function(component) {
+        var route = {
+            file: component.getAttribute('component') + ".html",
+            url: component.getAttribute('route') || component.getAttribute('routes'),
+        };
+        window.rout.es.push(route);
     });
+    0 < 1 ? window.rout.es.sort(function(a, b) {
+        return rout.ed(a.url).length - rout.ed(b.url).length
+    }) : null;
+    0 > 1 ? console.log(2, "window.onload", {
+        routes: window.routes
+    }) : null;
 
     browse.route(window.location.pathname);
 

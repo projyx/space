@@ -1,6 +1,10 @@
 window.browse = {};
+window.rout = {};
 
-browse.route = (href,params)=>{
+window.rout.ed = (href)=>{
+    return href.split('/').filter(o=>o.length > 0);
+}
+window.rout.er = (href,params)=>{
     return new Promise((resolve,reject)=>browser(resolve, reject));
     async function browser(resolve, reject) {
         //URL VARIABLES
@@ -38,10 +42,9 @@ browse.route = (href,params)=>{
         var dynamic = pathname;
         var matched = pathname;
         if (paths.length > 0) {
-            var route = window.manifest.routes.reverse().filter(o=>o.url !== "/").every(function(route, index) {
+            var route = window.rout.es.reverse().every(function(route, index) {
                 //console.log('manifest.route', {dynamic, url: route.url});
                 var path = route.url.split('/').filter(o=>o.length > 0);
-                //path.reverse();
                 console.log(41, route.url, path, paths);
                 shtap = [];
                 bool = [];
@@ -55,40 +58,90 @@ browse.route = (href,params)=>{
                         var q = path[z] ? path[z] : null;
                         var d = p;
                         var e = null;
-                        console.log(48, z);
+                        console.log(z, path, route.url);
                         if (z < path.length) {
-                            if (p.startsWith(':')) {
+                            if (q.startsWith(':')) {
                                 var b = p.split(':')[1];
                                 var c = '*';
                                 if (b === "user") {
                                     d = window.auth.user().localId;
                                 }
                                 bool.push(true);
+                                console.log(69, paths[z], q, bool[bool.length - 1]);
                             } else if (a.startsWith('*')) {
                                 var c = '*';
                                 bool.push(true);
+                                console.log(73, paths[z], q, bool[bool.length - 1]);
                             } else {
                                 c = a;
-                                bool.push(paths[z] === c);
+                                bool.push((paths[z] === q) || (q === "*"));
+                                console.log(77, paths[z], q, bool[bool.length - 1]);
                             }
                             e = q === "*" ? q : d;
                             loob.push(c);
                             loop.push(d);
                             shtap.push(c);
+                            var h = '/' + pool.join('/') + (z > 0 ? '/' : '') + e;
+                            var ifit = window.rout.es.some(e=>e.url.startsWith(h))
                             if (q === "*") {
-                                pool.push(e)
+                                0 < 1 ? console.log(82, {
+                                    z,
+                                    h,
+                                    q,
+                                    p,
+                                    bool,
+                                    path,
+                                    paths,
+                                    a,
+                                    e,
+                                    pool,
+                                    ifit
+                                }) : null;
+
+                                ifit ? pool.push(q) : null
                             } else {
+                                0 < 1 ? console.log(98, {
+                                    z,
+                                    h,
+                                    q,
+                                    p,
+                                    bool,
+                                    path,
+                                    paths,
+                                    a,
+                                    e,
+                                    pool,
+                                    ifit
+                                }) : null;
                                 if (p === q) {
                                     pool.push(e)
                                 }
                             }
                         } else {
+
                             e = q ? q : d;
                             loop.push(d);
                             shtap.push(d);
-                            //pool.push(e);
+                            path[z] ? pool.push(p) : null;
+                            bool.push((paths[z] === a && q !== "*"));
+
+                            0 < 1 ? console.log(125, {
+                                route,
+                                z,
+                                h,
+                                q,
+                                p,
+                                bool,
+                                path,
+                                paths,
+                                a,
+                                e,
+                                pool,
+                                ifit
+                            }) : null;
+
                         }
-                        console.log(66, {
+                        0 < 1 ? console.log(66, route.url, {
                             paths,
                             shtap,
                             a,
@@ -101,14 +154,13 @@ browse.route = (href,params)=>{
                             bool,
                             loob,
                             loop,
-                            pool,
-                            url: route.url
-                        });
+                            pool
+                        }) : null;
                     }
                 }
                 var booled = bool.length > 0 && bool.every(Boolean);
                 var rooted = booled && ('/' + loop.join('/').startsWith(route.url));
-                console.log(68, {
+                0 < 1 ? console.log(68, {
                     bool,
                     booled,
                     rooted,
@@ -121,11 +173,14 @@ browse.route = (href,params)=>{
                     loob: '/' + loob.join('/'),
                     loop: '/' + loop.join('/'),
                     pool: '/' + pool.join('/')
-                });
+                }) : null;
                 if (booled) {
                     dynamic = '/' + shtap.join('/');
                     matched = '/' + pool.join('/');
-                    console.log(72, matched);
+                    0 > 1 ? console.log(72, {
+                        matched,
+                        pool
+                    }) : null;
                     return false
                 } else {
                     return true
@@ -136,8 +191,9 @@ browse.route = (href,params)=>{
 
         //PAGE ROUTE
         var uri = link + (search ? "?" + search : "");
-        var component = document.querySelector('[route="' + matched + '"]');
-        var route = window.manifest.routes.filter(o=>o.url === matched)[0];
+        var route = window.rout.es.filter(o=>o.url === matched)[0];
+        console.log(145, route, matched, pool);
+        var component = document.querySelector('[component="' + route.file.split('.')[0] + '"]');
         var options = {
             loop,
             pool,
@@ -158,10 +214,10 @@ browse.route = (href,params)=>{
             params
         });
         document.querySelectorAll('.component').forEach(c=>c.classList.remove('active'));
-        var html = await get('/assets/html/' + route.file);
+        var html = await get('/raw/asset/html/' + route.file);
         component.innerHTML.length === 0 ? component.innerHTML = html : null;
         try {
-            var obj = await window.routes(uri, options);
+            uri = await window.routes(uri, options);
             component.classList.add('active');
         } catch (e) {
             console.log(e);
@@ -181,6 +237,8 @@ browse.route = (href,params)=>{
         } else {
             history.replaceState(state, null, uri);
         }
-        resolve(obj);
+        resolve(route);
     }
 }
+window.rout.es = [];
+browse.route = window.rout.er;

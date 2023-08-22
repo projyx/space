@@ -9,7 +9,7 @@ window.events.onclick.document = async function(event) {
     if (elem) {
         event.preventDefault();
         var href = elem.getAttribute('href');
-        console.log(47, href);
+        //console.log(47, href);
         browse.route(href);
     }
 }

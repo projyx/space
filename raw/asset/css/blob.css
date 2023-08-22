@@ -1,0 +1,102 @@
+@media {
+    .component-blob{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+@media {
+    .component-blob .header-editor {
+        background: #292a2d;
+        border-bottom: 1px solid #666;
+        box-sizing: border-box;
+        /* padding: 10px; */
+        position: fixed;
+        width: 100%;
+        z-index: 12345;
+    }
+
+    .component-blob .header-editor > section {
+        align-items: center;
+        display: flex;
+        /* gap: 10px; */
+    }
+    
+    .component-blob .header-editor .editor-file > section {
+        display: flex;
+        gap: 5px;
+    }  
+    
+    .component-blob .header-editor .file-menu > section i {
+        align-items: center;
+        display: flex;
+        height: 50px;
+        justify-content: Center;
+        width: 50px;
+    }   
+    
+    .component-blob .header-editor .file-meta {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .component-blob .header-editor .file-meta > section {
+        flex-direction: column;
+    }   
+    
+    .component-blob .header-editor .file-meta .meta-title {
+        font-weight: bolder;
+    }
+    
+    .component-blob .header-editor .file-meta .meta-owner {
+        font-size: 14px;
+    }
+    
+    .component-blob .header-editor .editor-buttons {
+        margin-left: auto;
+    }
+    
+    .component-blob .header-editor .buttons-group > section {
+        display: flex;
+        gap: 5px;
+    }  
+    
+    .component-blob .header-editor .buttons-group > section i {
+        align-items: center;
+        display: flex;
+        height: 50px;
+        justify-content: Center;
+        width: 50px;
+    }
+
+    .component-blob .header-editor .editor-authenticate .authenticate-avatar {
+        align-items: center;
+        height: 50px;
+        justify-content: center;
+        width: 50px;
+    }
+
+    .component-blob .header-editor .editor-authenticate .authenticate-avatar .avatar-image {
+        align-items: center;
+        background: #000;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        height: 30px;
+        width: 30px;
+    }
+
+    .component-blob .header-editor .editor-authenticate .authenticate-avatar .avatar-image img {
+        filter: invert(1);
+        height: 75%;
+        margin: auto auto 0;
+        width: 75%;
+    }
+}
+
+@media {
+    .component-blob
+}

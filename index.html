@@ -4,27 +4,26 @@
         <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0'>
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
         <link href="/index.css" rel="stylesheet">
-        <link href="/assets/css/home.css" rel="stylesheet">
-        <link href="/assets/css/explorer.css" rel="stylesheet">
-        <link href="/assets/css/user.css" rel="stylesheet">
-        <link href="/assets/css/code.css" rel="stylesheet">
-        <link href="/assets/css/settings.css" rel="stylesheet">
-        <link href="/assets/css/theme.css" rel="stylesheet">
+        <link href="/raw/asset/css/home.css" rel="stylesheet">
+        <link href="/raw/asset/css/blob.css" rel="stylesheet">
+        <link href="/raw/asset/css/explorer.css" rel="stylesheet">
+        <link href="/raw/asset/css/user.css" rel="stylesheet">
+        <link href="/raw/asset/css/code.css" rel="stylesheet">
+        <link href="/raw/asset/css/settings.css" rel="stylesheet">
+        <link href="/raw/asset/css/theme.css" rel="stylesheet">
         <script src="/index.js"></script>
-        <script src="/assets/js/api.js"></script>
-        <script src="/assets/js/browse.js"></script>
-        <script src="/assets/js/events.js"></script>
-        <script src="/assets/js/export.js"></script>
-        <script src="/assets/js/github.js"></script>
-        <script src="/assets/js/routes.js"></script>
+        <script src="/raw/asset/js/api.js"></script>
+        <script src="/raw/asset/js/router.js"></script>
+        <script src="/raw/asset/js/events.js"></script>
+        <script src="/raw/asset/js/export.js"></script>
+        <script src="/raw/asset/js/github.js"></script>
+        <script src="/raw/asset/js/routes.js"></script>
     </head>
     <body theme="system">
         <main>
-            <section class="component component-home" component="explorer" route="/" routes="/"></section>
-            <section class="component component-user" component="explorer" route="/*"></section>
-            <section class="component component-repo" component="explorer" route="/*/*"></section>
-            <section class="component component-code" component="code" route="/*/*/edit"></section>
-            <section class="component component-settings" component="settings" route="/settings" routes="/settings"></section>
+            <component class="component component-home" component="explorer" routes="/"></component>
+            <component class="component component-blob" component="blob" route="/*/*/blob"></component>
+            <component class="component component-settings" component="settings" routes="/settings"></component>
         </main>
     </body>
 </html>
