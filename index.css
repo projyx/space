@@ -20,6 +20,13 @@
         display: inline-flex;
     }
 
+    iframe {
+        background: white;
+        border: 0;
+        height: 100%;
+        width: 100%;
+    }
+
     input[type="text"] {
         background-color: transparent;
         bordeR: none;
