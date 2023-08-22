@@ -1,11 +1,11 @@
 <header class="header-code">
     <section>
-        <div class="code-file" href="/">
+        <div class="code-file">
             <section>
-                <span class="file-menu">
+                <span class="file-menu" onclick="events.onclick.exit()">
                     <section>
                         <i>
-                            <con class="icon-config"></con>
+                            <con class="icon-chevron-left"></con>
                         </i>
                     </section>
                 </span>
@@ -13,6 +13,13 @@
                     <section>
                         <text class="meta-title" name="title" placeholder="Untitled"></text>
                         <text class="meta-owner" name="owner" placeholder="Anonymous"></text>
+                    </section>
+                </span>
+                <span class="file-menu">
+                    <section>
+                        <i>
+                            <con class="icon-config"></con>
+                        </i>
                     </section>
                 </span>
             </section>
@@ -46,11 +53,16 @@
 </header>
 <aside class="aside-code">
     <section>
-        <card>
+        <card class="code-file code-html">
             <header>
-                <box>
+                <box class="file-type">
                     <section>
-                        <text></text>
+                        <text>
+                            <i>
+                                <con></con>
+                            </i>
+                            <span>HTML</span>
+                        </text>
                     </section>
                 </box>
             </header>
@@ -60,11 +72,11 @@
                 </box>    
             </section>
         </card>
-        <card>
+        <card class="code-file code-css">
             <header>
-                <box>
+                <box class="file-type">
                     <section>
-                        <text></text>
+                        <text>CSS</text>
                     </section>
                 </box>
             </header>
@@ -74,11 +86,11 @@
                 </box>    
             </section>
         </card>
-        <card>
+        <card class="code-file code-js">
             <header>
-                <box>
+                <box class="file-type">
                     <section>
-                        <text></text>
+                        <text>JS</text>
                     </section>
                 </box>
             </header>

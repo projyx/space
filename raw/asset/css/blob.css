@@ -14,7 +14,7 @@
     .component-blob .header-code {
         background: aliceblue;
         background: #1a1a1a;
-        border-bottom: 1px solid #666;
+        /* border-bottom: 1px solid #666; */
         box-sizing: border-box;
         display: flex;
         /* padding: 10px; */
@@ -107,13 +107,80 @@
 @media {
     .component-blob .aside-code {
         background: #292a2d;
+        display: flex;
         height: 100%;
         width: 400px;
+    }
+
+    .component-blob .aside-code > section {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+    
+    .component-blob .aside-code .code-file  {
+        height: 100%;
+        width: 100%
+    }
+    
+    .component-blob .aside-code .code-html {
+        background: red;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .component-blob .aside-code .code-css {
+        background: green;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .component-blob .aside-code .code-js {
+        background: blue;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .component-blob .aside-code .code-file header {
+        align-items: center;
+        background: #292a2d;
+        display: flex;
+        height: 50px;
+        width: 100%;
+    }
+    
+    .component-blob .aside-code .code-file header .file-type {
+        align-items: center;
+        display: flex;
+        font-weight: bolder;
+        height: 100%;
+        padding: 0 10px;
+    }
+    
+    .component-blob .aside-code .code-html header .file-type {
+        background: red;
+    }
+    
+    .component-blob .aside-code .code-css header .file-type {
+        background: green;
+        height: 100%;
+    }
+    
+    .component-blob .aside-code .code-js header .file-type {
+        background: blue;
+        height: 100%;
     }
 }
 
 /*BLOCK*/
 @media {
+    .component-blob .block-code {
+        display: inline-flex;
+        flex: 1;
+        height: 100%;
+        /* width: 100%; */
+    }
+    
     .component-blob .block-code {
         display: inline-flex;
         flex: 1;
