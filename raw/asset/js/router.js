@@ -1,4 +1,3 @@
-window.browse = {};
 window.rout = {};
 
 window.rout.ed = (href)=>{
@@ -241,4 +240,3 @@ window.rout.er = (href,params)=>{
     }
 }
 window.rout.es = [];
-browse.route = window.rout.er;

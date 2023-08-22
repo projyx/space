@@ -30,7 +30,7 @@ window.events.onclick.document = async function(event) {
         event.preventDefault();
         var href = elem.getAttribute('href');
         //console.log(47, href);
-        browse.route(href);
+        rout.er(href);
     }
 }
 window.events.onclick.exit = function(event) {

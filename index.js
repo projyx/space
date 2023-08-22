@@ -30,7 +30,7 @@ window.onload = async(event)=>{
         routes: window.routes
     }) : null;
 
-    browse.route(window.location.pathname);
+    rout.er(window.location.pathname);
 
     document.body.onclick = window.events.onclick.document;
 }
@@ -40,7 +40,7 @@ window.onpopstate = (event)=>{
     console.log(event, state);
     if (state && state.url) {
         console.log(state);
-        state.url.length > 0 ? browse.route(state.url, {
+        state.url.length > 0 ? rout.er(state.url, {
             pop: true
         }) : null;
     }
