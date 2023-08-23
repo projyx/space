@@ -9,7 +9,7 @@
     }
 
     article, div, picture {
-        display: flex;
+        /* display: flex; */
     }
 
     section {
@@ -17,7 +17,7 @@
     }
 
     span {
-        display: inline-flex;
+        /* display: inline-flex; */
     }
 
     iframe {

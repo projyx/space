@@ -119,26 +119,58 @@
     }
     
     .component-blob .aside-code .code-file  {
-        height: 100%;
+        background: #555;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        height: calc(100%/3);
         width: 100%
     }
     
     .component-blob .aside-code .code-html {
-        background: red;
-        height: 100%;
-        width: 100%;
+        /* background: red; */
+        /* height: 100%; */
+        /* width: 100%; */
     }
     
     .component-blob .aside-code .code-css {
-        background: green;
-        height: 100%;
-        width: 100%;
+        /* background: green; */
+        /* height: 100%; */
+        /* width: 100%; */
     }
     
     .component-blob .aside-code .code-js {
-        background: blue;
+        /* background: blue; */
+        /* height: 100%; */
+        /* width: 100%; */
+    }
+    
+    .component-blob .aside-code .code-file > section {
+        display: flex;
+        flex: 1;
+        overflow-x: hidden;
+    }
+    
+    .component-blob .aside-code .code-file > section > box {
+        display: flex;
+        /* flex: 1; */
+    }
+    
+    .component-blob .aside-code .code-file > section > box > section {
+        background: #555;
+        display: flex;
+        flex-direction: column;
         height: 100%;
         width: 100%;
+        flex: 1;
+        position: relative;
+    }
+    
+    .component-blob .aside-code .code-file > section > box > section .CodeMirror {
+        background: #555;
+        height: 100%;
+        width: 100%;
+        /* flex: 1; */
     }
     
     .component-blob .aside-code .code-file header {
@@ -151,6 +183,9 @@
     
     .component-blob .aside-code .code-file header .file-type {
         align-items: center;
+        background: #555;
+        border-top: 4px solid #777;
+        box-sizing: border-box;
         display: flex;
         font-weight: bolder;
         height: 100%;
@@ -158,17 +193,25 @@
     }
     
     .component-blob .aside-code .code-html header .file-type {
-        background: red;
+        /* background: red; */
     }
     
     .component-blob .aside-code .code-css header .file-type {
-        background: green;
+        /* background: green; */
         height: 100%;
     }
     
     .component-blob .aside-code .code-js header .file-type {
-        background: blue;
+        /* background: blue; */
         height: 100%;
+    }
+}
+
+@media {
+    .component-blob .block-line {
+        background: #333;
+        height: 100%;
+        width: 20px;
     }
 }
 

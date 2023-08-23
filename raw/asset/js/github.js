@@ -18,7 +18,7 @@ window.github = {
                         Authorization: "token " + accessToken
                     }
                 } : null;
-                get(url, settings).then(a).catch(b);
+                request(url, settings).then(a).catch(b);
             }
             );            
         }
@@ -41,7 +41,7 @@ window.github = {
                         Authorization: "token " + accessToken
                     }
                 } : null;
-                get(url, settings).then(a).catch(b);
+                request(url, settings).then(a).catch(b);
             }
             );
         }

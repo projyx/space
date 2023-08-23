@@ -213,7 +213,7 @@ window.rout.er = (href,params)=>{
             params
         });
         document.querySelectorAll('.component').forEach(c=>c.classList.remove('active'));
-        var html = await get('/raw/asset/html/' + route.file);
+        var html = await request('/raw/asset/html/' + route.file);
         component.innerHTML.length === 0 ? component.innerHTML = html : null;
         try {
             uri = await window.routes(uri, options);

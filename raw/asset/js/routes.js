@@ -23,6 +23,135 @@ window.routes = function(uri, options) {
                             var file = paths[paths.length - 1];
                             if (file.includes('.')) {
                                 console.log(37, 'routes.view editor');
+
+                                window.dom = {
+
+                                    body: document.body,
+
+                                    "style": document.getElementById("css"),
+
+                                    "code": document.getElementById("code"),
+
+                                    "html": document.getElementById('code-html'),
+
+                                    "css": document.getElementById('code-css'),
+
+                                    "js": document.getElementById('js-editor'),
+
+                                    "resize": {
+
+                                        "code": document.getElementById("resizer"),
+
+                                        "html": document.getElementById('html-resizer'),
+
+                                        "css": document.getElementById('css-resizer'),
+
+                                        "js": document.getElementById('js-resizer')
+
+                                    },
+
+                                    "iframe": {
+
+                                        "code": {
+
+                                            "elem": document.getElementById("code-frame")
+
+                                        }
+
+                                    }
+
+                                };
+
+                                window.cm = {};
+                                cm.html = CodeMirror(component.querySelector('#code-html'), {
+
+                                    lineNumbers: true,
+
+                                    lineWrapping: true,
+
+                                    htmlMode: true,
+
+                                    mode: 'xml',
+
+                                    styleActiveLine: true,
+
+                                    theme: 'abcdef',
+
+                                    matchBrackets: true
+
+                                });
+
+                                cm.html.on("change", (change)=>{
+
+                                    upd();
+
+                                }
+                                );
+
+                                cm.css = CodeMirror(component.querySelector('#code-css'), {
+
+                                    lineNumbers: true,
+
+                                    lineWrapping: true,
+
+                                    mode: 'css',
+
+                                    styleActiveLine: true,
+
+                                    theme: 'abcdef',
+
+                                    matchBrackets: true
+
+                                });
+
+                                cm.css.on("change", (change)=>{
+
+                                    upd();
+
+                                }
+                                );
+
+                                cm.js = CodeMirror(component.querySelector('#code-js'), {
+
+                                    lineNumbers: true,
+
+                                    lineWrapping: true,
+
+                                    mode: 'javascript',
+
+                                    styleActiveLine: true,
+
+                                    theme: 'abcdef',
+
+                                    matchBrackets: true
+
+                                });
+
+                                cm.js.on("change", (change)=>{
+
+                                    upd();
+
+                                }
+                                );
+
+                                var file = paths[paths.length - 1];
+                                var owner = paths[0];
+                                var repo = paths[1];
+                                var path = uri.split('/').filter(o=>o.length > 0).splice(4);
+                                path.pop();
+                                path = path.join('/');
+                                console.log(143, path, file);
+                                ["html", "css", "js"].forEach(async(ext)=>{
+                                    try {
+                                        var json = await github.repos.contents(owner, repo, path + "/" + file.split('.')[0] + "." + ext);
+                                        var content = atob(json.content);
+                                        cm[ext].setValue(content);
+                                    } catch (e) {
+                                        console.log(e);
+                                    }
+                                }
+                                );
+
                             } else {
                                 status = 400;
                                 e = {
@@ -39,7 +168,7 @@ window.routes = function(uri, options) {
                             var contents = await github.repos.contents(sub, paths[1], path);
                             var explorer = component.querySelector('.explorer-section');
                             explorer.innerHTML = "";
-                            var html = await get("/raw/asset/html/explorer.repo.html");
+                            var html = await request("/raw/asset/html/explorer.repo.html");
                             explorer.innerHTML = html;
                             var feed = explorer.querySelector('.section-repositories > section');
                             var template = feed.nextElementSibling.content.firstElementChild;
@@ -84,7 +213,7 @@ window.routes = function(uri, options) {
                         var contents = await github.repos.contents(sub, paths[1], path);
                         var explorer = component.querySelector('.explorer-section');
                         explorer.innerHTML = "";
-                        var html = await get("/raw/asset/html/explorer.repo.html");
+                        var html = await request("/raw/asset/html/explorer.repo.html");
                         explorer.innerHTML = html;
                         var feed = explorer.querySelector('.section-repositories > section');
                         var template = feed.nextElementSibling.content.firstElementChild;
@@ -110,6 +239,7 @@ window.routes = function(uri, options) {
                         }
                         );
                         console.log('users.repos', repos);
+
                     }
                 } else {
                     console.log("routes.view user");
@@ -117,7 +247,7 @@ window.routes = function(uri, options) {
                     var repos = await github.users.repos(sub);
                     var explorer = component.querySelector('.explorer-section');
                     explorer.innerHTML = "";
-                    var html = await get("/raw/asset/html/explorer.user.html");
+                    var html = await request("/raw/asset/html/explorer.user.html");
                     explorer.innerHTML = html;
                     var feed = explorer.querySelector('.section-repositories > section');
                     var template = feed.nextElementSibling.content.firstElementChild;
@@ -134,7 +264,7 @@ window.routes = function(uri, options) {
         } else {
             var explorer = component.querySelector('.explorer-section');
             explorer.innerHTML = "";
-            var html = await get("/raw/asset/html/explorer.home.html");
+            var html = await request("/raw/asset/html/explorer.home.html");
             explorer.innerHTML = html;
             console.log("routes.view home");
         }
