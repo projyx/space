@@ -12,7 +12,7 @@
         /* display: flex; */
     }
 
-    section {
+    column, flex, row, section {
         display: flex;
     }
 

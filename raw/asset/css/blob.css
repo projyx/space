@@ -80,6 +80,7 @@
 
     .component-blob .header-code .code-authenticate .authenticate-avatar {
         align-items: center;
+        display: flex;
         height: 50px;
         justify-content: center;
         width: 50px;
@@ -108,7 +109,7 @@
     .component-blob .aside-code {
         background: #292a2d;
         display: flex;
-        height: 100%;
+        height: calc(100% - 50px);
         width: 400px;
     }
 
@@ -116,6 +117,7 @@
         display: flex;
         flex: 1;
         flex-direction: column;
+        width: 100%;
     }
     
     .component-blob .aside-code .code-file  {
@@ -153,7 +155,7 @@
     
     .component-blob .aside-code .code-file > section > box {
         display: flex;
-        /* flex: 1; */
+        flex: 1;
     }
     
     .component-blob .aside-code .code-file > section > box > section {
@@ -210,7 +212,7 @@
 @media {
     .component-blob .block-line {
         background: #333;
-        height: 100%;
+        height: calc(100% - 50px);
         width: 20px;
     }
 }
@@ -227,7 +229,7 @@
     .component-blob .block-code {
         display: inline-flex;
         flex: 1;
-        height: 100%;
+        height: calc(100% - 50px);
         /* width: 100%; */
     }
 }

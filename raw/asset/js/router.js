@@ -10,7 +10,7 @@ window.rout.er = (href,params)=>{
         var url = new URL(href,location.origin);
         var pathname = url.pathname;
         var search = url.search ? url.search : null;
-        var paths = pathname.split("/").splice(1).filter(n=>n);
+        var paths = pathname.split("/").splice(1).filter(n=>n.length > 0);
 
         //TRANSFORM URL
         var link = pathname;
