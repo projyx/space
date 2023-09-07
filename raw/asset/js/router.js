@@ -1,5 +1,6 @@
 window.rout = {};
 
+window.rout.e = [];
 window.rout.ed = (href)=>{
     return href.split('/').filter(o=>o.length > 0);
 }
@@ -236,6 +237,10 @@ window.rout.er = (href,params)=>{
         } else {
             history.replaceState(state, null, uri);
         }
+        window.rout.e = {
+            paths: uri.split("/").filter(o=>o.length > 1),
+            uri
+        };
         resolve(route);
     }
 }
